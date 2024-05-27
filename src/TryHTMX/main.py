@@ -1,10 +1,11 @@
 """Build the server."""
 from pathlib import Path
 
-import uvicorn
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 import os
+
+import fastapi_cli.cli
 
 package_path = Path(os.path.dirname(__file__))
 
@@ -26,5 +27,5 @@ app.mount(
 
 
 def run():
-    """Run the application."""
-    uvicorn.run(app)
+    """Run the FastAPI CLI."""
+    fastapi_cli.cli.dev(package_path)
