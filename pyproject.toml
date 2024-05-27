@@ -1,0 +1,53 @@
+# Specifications for this file are in https://packaging.python.org/specifications/core-metadata
+[project]
+name = "TryHTMX"
+readme = "README.md"
+dynamic = ["version"]
+keywords = [
+  "development",
+]
+
+authors = [
+  { name = "Simone Rubino", email = "daemo00@gmail.com" },
+]
+
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+]
+
+dependencies = [
+  "fastapi",
+]
+
+[project.optional-dependencies]
+docs = [
+	"sphinx",
+	"sphinx-immaterial",
+]
+
+
+[project.scripts]
+add_number = "TryHTMX:cli.main"
+
+
+[tool.setuptools_scm]
+write_to = "src/TryHTMX/__version__.py"
+
+[build-system]
+requires = [
+  "setuptools>=45",
+  "setuptools_scm[toml]>=6.2",
+  "wheel",
+]
+build-backend = "setuptools.build_meta"
+
+[tool.ruff.lint]
+select = [
+  "E4", "E7", "E9", "F",  # Default
+  "D",  # Enable all `pydocstyle` rules
+]
+
+[tool.ruff.lint.pydocstyle]
+convention = "pep257"
