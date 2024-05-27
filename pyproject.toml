@@ -29,7 +29,7 @@ docs = [
 
 
 [project.scripts]
-add_number = "TryHTMX:cli.main"
+run = "TryHTMX:cli.main"
 
 
 [tool.setuptools_scm]
