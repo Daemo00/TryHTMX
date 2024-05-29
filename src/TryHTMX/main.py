@@ -2,7 +2,7 @@
 from pathlib import Path
 
 from fastapi import FastAPI
-from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 import os
 
 import fastapi_cli.cli
@@ -12,18 +12,16 @@ package_path = Path(os.path.dirname(__file__))
 app = FastAPI()
 
 
+@app.get("/")
+async def root():
+    """Root."""
+    return FileResponse(package_path / "static" / "index.html")
+
+
 @app.post("/clicked")
 async def clicked():
     """Response to button click."""
     return "Clicked"
-
-
-# Mount after other paths so it does not overwrite it
-app.mount(
-    "/",
-    StaticFiles(directory=package_path / "static", html=True),
-    name="static",
-)
 
 
 def run():
