@@ -1,29 +1,14 @@
-"""Build the server."""
-from pathlib import Path
-
-from fastapi import FastAPI
-from fastapi.responses import FileResponse
-import os
+"""Run the server."""
 
 import fastapi_cli.cli
-
-package_path = Path(os.path.dirname(__file__))
-
-app = FastAPI()
+from .app.main import app_path
 
 
-@app.get("/")
-async def root():
-    """Root."""
-    return FileResponse(package_path / "static" / "index.html")
-
-
-@app.post("/clicked")
-async def clicked():
-    """Response to button click."""
-    return "Clicked"
-
-
-def run():
+def run(mode="dev"):
     """Run the FastAPI CLI."""
-    fastapi_cli.cli.dev(package_path)
+    match mode:
+        case "dev":
+            runner = fastapi_cli.cli.dev
+        case _:
+            runner = fastapi_cli.cli.run
+    runner(app_path)
