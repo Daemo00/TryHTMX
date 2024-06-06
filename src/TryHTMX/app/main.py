@@ -1,9 +1,8 @@
 """Build the server."""
-import os
-from pathlib import Path
 
 from fastapi import FastAPI
 
-app_path = Path(os.path.dirname(__file__))
+from .routes import router
 
 app = FastAPI()
+app.include_router(router)
