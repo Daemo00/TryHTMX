@@ -1,7 +1,7 @@
 """Run the server."""
 
 import fastapi_cli.cli
-from .app.dependencies import app_path
+from .app.dependencies import static_path
 
 
 def run(mode="dev"):
@@ -11,4 +11,4 @@ def run(mode="dev"):
             runner = fastapi_cli.cli.dev
         case _:
             runner = fastapi_cli.cli.run
-    runner(app_path)
+    runner(static_path)

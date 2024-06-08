@@ -1,5 +1,15 @@
-  <script src="https://unpkg.com/htmx.org@1.9.12"></script>
-  <!-- have a button POST a click via AJAX -->
-  <button data-hx-post="/clicked" data-hx-swap="outerHTML">
-    Click Me
-  </button>
+<script src="https://unpkg.com/htmx.org@1.9.12"></script>
+<!-- have a button POST a click via AJAX -->
+<button data-hx-post="/clicked" data-hx-swap="outerHTML">
+  Click Me
+</button>
+<button data-hx-post="/clicked" data-hx-trigger="click" data-hx-target="#target-div" data-hx-swap="outerHTML">
+  Click Me target mode!
+</button>
+<div id="target-div">This is the target</div>
+<div hx-post="/mouse_entered" hx-trigger="mouseenter">
+  [Here Mouse, Mouse!]
+</div>
+<input type="text" name="q" hx-get="/trigger_delay" hx-trigger="keyup changed delay:500ms" hx-target="#search-results"
+  placeholder="Search...">
+<div id="search-results"></div>
