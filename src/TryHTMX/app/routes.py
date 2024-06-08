@@ -1,4 +1,5 @@
 """Routes for FastAPI app."""
+import time
 from fastapi.responses import FileResponse
 from fastapi import APIRouter
 
@@ -13,9 +14,16 @@ async def root():
     return FileResponse(static_path / "static" / "index.html")
 
 
+@router.get("/spinner.gif")
+async def spinner():
+    """Root."""
+    return FileResponse(static_path / "static" / "spinner.gif")
+
+
 @router.post("/clicked")
 async def clicked():
     """Response to button click."""
+    time.sleep(3)
     return "Clicked"
 
 

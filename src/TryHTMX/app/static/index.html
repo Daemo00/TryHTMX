@@ -1,12 +1,43 @@
 <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+<style>
+  <!-- 
+  Otherwise standard classes use only opacity to show/hide the indicator
+  -->
+  .htmx-indicator
+  {
+  display:
+  none;
+  }
+  .htmx-request
+  .htmx-indicator
+  {
+  display:
+  inline;
+  }
+  .htmx-request.htmx-indicator
+  {
+  display:
+  inline;
+  }
+  .fade-me-out.htmx-swapping
+  {
+  opacity:
+  0;
+  transition:
+  opacity
+  1s
+  ease-out;
+  }
+</style>
 <!-- have a button POST a click via AJAX -->
 <button data-hx-post="/clicked" data-hx-swap="outerHTML">
   Click Me
+  <img class="htmx-indicator" src="/spinner.gif">
 </button>
-<button data-hx-post="/clicked" data-hx-trigger="click" data-hx-target="#target-div" data-hx-swap="outerHTML">
+<button data-hx-post="/clicked" data-hx-trigger="click" data-hx-target="#target-div" data-hx-swap="outerHTML swap:1s">
   Click Me target mode!
 </button>
-<div id="target-div">This is the target</div>
+<div class="fade-me-out" id="target-div">This is the target</div>
 <div hx-post="/mouse_entered" hx-trigger="mouseenter">
   [Here Mouse, Mouse!]
 </div>
