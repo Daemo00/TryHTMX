@@ -2,7 +2,7 @@
 
 from fastapi import FastAPI
 
-from .routes import router
+from .routes.main import router
 
 app = FastAPI()
 app.include_router(router)

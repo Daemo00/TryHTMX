@@ -3,7 +3,9 @@ import time
 from fastapi.responses import FileResponse
 from fastapi import APIRouter
 
-from .dependencies import static_path
+from ..dependencies import static_path
+
+from ...orm.models.hero import populate as populate_db
 
 router = APIRouter()
 
@@ -37,3 +39,9 @@ async def mouse_entered():
 async def trigger_delay(q=None):
     """Response to search query."""
     return f"After delayed trigger with {q}"
+
+
+@router.get("/populate")
+async def populate():
+    """Populate the DB with some data."""
+    populate_db()
