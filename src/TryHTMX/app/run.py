@@ -11,4 +11,7 @@ def run(mode="dev"):
             runner = fastapi_cli.cli.dev
         case _:
             runner = fastapi_cli.cli.run
-    runner(static_path)
+    runner(
+        static_path,
+        host="0.0.0.0",  # nosec: B104:hardcoded_bind_all_interfaces
+    )
