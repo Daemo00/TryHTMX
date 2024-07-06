@@ -1,7 +1,7 @@
 """Run the server."""
 
 import fastapi_cli.cli
-from .app.dependencies import static_path
+from .dependencies import static_path
 
 
 def run(mode="dev"):

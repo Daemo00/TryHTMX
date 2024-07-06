@@ -30,7 +30,7 @@ docs = [
 
 
 [project.scripts]
-run = "TryHTMX:cli.main"
+run = "TryHTMX.cli.main:main"
 
 
 [tool.setuptools_scm]
