@@ -21,7 +21,7 @@ Jinja2==3.1.4
 markdown-it-py==3.0.0
 MarkupSafe==2.1.5
 mdurl==0.1.2
-orjson==3.10.3
+orjson==3.10.6
 packaging==24.0
 pip==24.0
 platformdirs==4.2.2
