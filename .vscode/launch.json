@@ -11,9 +11,12 @@
     },
     {
       "name": "Run",
-      "type": "python",
+      "type": "debugpy",
       "request": "launch",
-      "module": "TryHTMX",
+      "module": "TryHTMX.cli",
+      "args": [
+        "app"
+      ],
       "justMyCode": false,
       "presentation": {
         "hidden": true
@@ -24,7 +27,7 @@
     {
       "name": "Run & Browse",
       "configurations": [
-        "Python Debugger: Module",
+        "Run",
         "Launch Chrome"
       ],
       "stopAll": true
